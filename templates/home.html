@@ -23,14 +23,13 @@
             {%endfor%}
             </tbody>
         </table>
-        <form action='/' method="POST" id="input-form">
+        <form method="POST" id="input-form">
             <input type="text" name="guess" placeholder="Enter word here">
             <button>Submit</button>
         </form>
 
         <p>High Score:
-            <b>use jinja to add score</b>
-            somethig else also goes here
+            <b>{{highscore}}</b>
         </p>
 
         <p>
@@ -42,6 +41,9 @@
 
     </section>
     <script src="/static/app.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://unpkg.com/jquery"></script>
+
 </body>
 
 
