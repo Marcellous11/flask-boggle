@@ -1,4 +1,5 @@
 
+from crypt import methods
 import json
 
 # from importlib_metadata import method_cache
@@ -25,15 +26,17 @@ def home_page():
 
 @app.route('/check-word')
 def word_handler():
-    word = request.form['guess']
-    board = session['board']
-    response = boggle_game.check_valid_word(board,word)
-    print(word)
-    print(response)
-    return jsonify({'result':response})
+    # changes form to args
+ 
+    word = request.args['word']
+    # board = session['board']
+    # response = boggle_game.check_valid_word(board,word)
+    # print(word)
+    return jsonify({'result':"test-response"})
 
-# @app.route('/', methods = ['POST'])
-# def post_score():
-#     score = request.json('score')
-#     return redirect('/')
+@app.route('/', methods = ['POST'])
+def post_score():
+    score = request.json('score')
+    
+    return redirect('/')
 

@@ -1,23 +1,20 @@
-const submitBtn = document.querySelector('#input-form button');
+const submitBtn = document.querySelector('form');
 console.log(submitBtn);
 
-submitBtn.addEventListener('click', function(e) {
-	// e.preventDefault();
-	input = document.querySelector('input');
-	// input.value = '';
-	// getResponseStatus();
+submitBtn.addEventListener('submit', async function(e) {
+	e.preventDefault();
+	word = document.querySelector('input').value;
+	console.log(word);
+
+	const res = await axios.get('/check-word');
+	console.log(res);
+	console.log(res.data.result);
 });
 
-async function getResponseStatus() {
-	res = await axios.get('/check-word');
-	console.log(res);
-	let highscore = document.querySelector('p b');
-
-	counter = 0;
-	if (res.result == 'ok') {
-		highscore.innerHTML = counter += 1;
-	}
-}
+// 	counter = 0;
+// 	if (res.result == 'ok') {
+// 		highscore.innerHTML = counter += 1;
+// 	}
 
 console.log('hey');
 
